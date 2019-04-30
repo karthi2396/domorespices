@@ -21,7 +21,7 @@ export class SignupOneComponent implements OnInit {
       mobileNumber: ['', Validators.required],
       userAddress: ['', Validators.required],
       userCity: ['', Validators.required],
-      userPincode: [],
+      userPincode: ['', Validators.required],
       userState: ['', Validators.required],
       userCountry: ['', Validators.required],
   });
