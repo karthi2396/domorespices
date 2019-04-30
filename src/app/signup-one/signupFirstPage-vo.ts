@@ -3,9 +3,7 @@ export class SignupFirstPageVO {
     lastName: string;
     middleName: string;
     email: string;
-    alternateEmail: string;
     mobileNumber: number;
-    alternateNumber: number;
     address: string;
     city: string;
     pincode: number;

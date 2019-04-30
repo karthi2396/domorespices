@@ -10,25 +10,25 @@ import { SignupFirstPageVO } from './signupFirstPage-vo';
 export class SignupOneComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
-  signupFristPage: FormGroup;
+  signupFirstPage: FormGroup;
   singnupPage = new SignupFirstPageVO();
   ngOnInit() {
-    this.signupFristPage  =  this.formBuilder.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
-      mname: ['', Validators.required],
+    this.signupFirstPage  =  this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      middleName: ['', Validators.required],
       mail: ['', Validators.required],
-      alternateMail: ['', Validators.required],
+      mobileNumber: ['', Validators.required],
       userAddress: ['', Validators.required],
       userCity: ['', Validators.required],
-      userPincode: ['', Validators.required],
+      userPincode: [],
       userState: ['', Validators.required],
       userCountry: ['', Validators.required],
   });
   }
 
   signup(){
-   if (this.signupFristPage.valid) {
+   if (this.signupFirstPage.valid) {
       console.log(this.singnupPage);
     }
   }
