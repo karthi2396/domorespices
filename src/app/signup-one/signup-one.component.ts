@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignupFirstPageVO } from './signupFirstPage-vo';
+import {CountryStatesMapper} from "../i8n/countryStatesMapping";
 
 @Component({
   selector: 'app-signup-one',
@@ -9,21 +10,25 @@ import { SignupFirstPageVO } from './signupFirstPage-vo';
 })
 export class SignupOneComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+  }
+
   signupFirstPage: FormGroup;
+  states: [];
   singnupPage = new SignupFirstPageVO();
+
   ngOnInit() {
     this.signupFirstPage  =  this.formBuilder.group({
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      middleName: ['', Validators.required],
+      lastName: [],
+      middleName: [],
       mail: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       userAddress: ['', Validators.required],
       userCity: ['', Validators.required],
       userPincode: ['', Validators.required],
-      userState: ['', Validators.required],
       userCountry: ['', Validators.required],
+      userState: ['', Validators.required]
   });
   }
 
@@ -31,6 +36,11 @@ export class SignupOneComponent implements OnInit {
    if (this.signupFirstPage.valid) {
       console.log(this.singnupPage);
     }
+  }
+
+  fetchAllStatesByCountry(country) {
+    this.states = new CountryStatesMapper().getStatesByCountry(country);
+    return this.states
   }
 
 }

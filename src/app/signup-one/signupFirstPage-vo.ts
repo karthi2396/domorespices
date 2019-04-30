@@ -1,5 +1,5 @@
 export class SignupFirstPageVO {
-    fristName: string;
+    firstName: string;
     lastName: string;
     middleName: string;
     email: string;
