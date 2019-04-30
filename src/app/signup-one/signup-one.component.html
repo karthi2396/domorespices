@@ -15,13 +15,13 @@
                  <span aria-hidden="true">&times;</span>
                </button>
              </div> 
-        <form [formGroup]="signupFristPage" #userForm="ngForm" (ngSubmit)="signup()">
+        <form [formGroup]="signupFristPage" #userForm="ngForm">
            <div class="form-group" >
               <label>First Name</label>
               
               <input type="text" [(ngModel)]="singnupPage.fristName" class="form-control form-control-m" 
               formControlName="fname" name="fristName" placeholder="First name">
-              <span class="help-block"  id="userName" *ngIf="signupFristPage.get('fname').invalid&&userForm.submitted">
+              <span class="help-block"  id="firstname" *ngIf="signupFristPage.get('fname').invalid&&userForm.submitted">
                Firstname is required
              </span>
          </div>
@@ -30,7 +30,7 @@
               
               <input [(ngModel)]="singnupPage.lastName" type="text" class="form-control form-control-m"
                formControlName="lname" name="lastName" placeholder="Last name">
-               <span class="help-block" id="userName" *ngIf="signupFristPage.get('lname').invalid&&userForm.submitted">
+               <span class="help-block" id="lastname" *ngIf="signupFristPage.get('lname').invalid&&userForm.submitted">
                   Lastname is required
                 </span>
          </div>
@@ -39,7 +39,7 @@
           
           <input [(ngModel)]="singnupPage.middleName" type="text" class="form-control form-control-m"
            formControlName="mname" name="middleName" placeholder="Middle name">
-           <span class="help-block" id="userName" *ngIf="signupFristPage.get('mname').invalid&&userForm.submitted">
+           <span class="help-block" id="middlename" *ngIf="signupFristPage.get('mname').invalid&&userForm.submitted">
               Middle name is required
             </span>
      </div>
@@ -47,7 +47,7 @@
       <label>Email</label>
       <input [(ngModel)]="singnupPage.email" type="email" class="form-control form-control-m"
        formControlName="mail" name="email" placeholder="Email">
-       <span class="help-block" id="userName" *ngIf="signupFristPage.get('mail').invalid&&userForm.submitted">
+       <span class="help-block" id="uemail" *ngIf="signupFristPage.get('mail').invalid&&userForm.submitted">
           Email is required
         </span>
      </div>
@@ -55,7 +55,7 @@
       <label>Alternate Email</label>
       <input [(ngModel)]="singnupPage.alternateEmail" type="email" class="form-control form-control-m"
        formControlName="alternateMail" name="alternateEmail" placeholder="Alternate email">
-       <span class="help-block" id="userName" *ngIf="signupFristPage.get('alternateMail').invalid&&userForm.submitted">
+       <span class="help-block" id="ualteremail" *ngIf="signupFristPage.get('alternateMail').invalid&&userForm.submitted">
           Alternate email is required
         </span>
      </div>
@@ -63,7 +63,7 @@
       <label>Address</label>
       <input [(ngModel)]="singnupPage.address" type="text" class="form-control form-control-m"
        formControlName="userAddress" name="address" placeholder="Address">
-       <span class="help-block" id="userName" *ngIf="signupFristPage.get('userAddress').invalid&&userForm.submitted">
+       <span class="help-block" id="uaddress" *ngIf="signupFristPage.get('userAddress').invalid&&userForm.submitted">
           Address is required
         </span>
      </div>
@@ -71,7 +71,7 @@
       <label>City</label>
       <input [(ngModel)]="singnupPage.city" type="text" class="form-control form-control-m"
        formControlName="userCity" name="city" placeholder="City">
-       <span class="help-block" id="userName" *ngIf="signupFristPage.get('userCity').invalid&&userForm.submitted">
+       <span class="help-block" id="ucity" *ngIf="signupFristPage.get('userCity').invalid&&userForm.submitted">
           City name is required
         </span>
      </div>
@@ -79,7 +79,7 @@
       <label>Pincode</label>
       <input [(ngModel)]="singnupPage.pincode" type="text" class="form-control form-control-m"
        formControlName="userPincode" name="pincode" placeholder="Pincode">
-       <span class="help-block" id="userName" *ngIf="signupFristPage.get('userPincode').invalid&&userForm.submitted">
+       <span class="help-block" id="upincode" *ngIf="signupFristPage.get('userPincode').invalid&&userForm.submitted">
           Pincode is required
         </span>
      </div>
@@ -87,7 +87,7 @@
       <label>State</label>
       <input [(ngModel)]="singnupPage.state" type="text" class="form-control form-control-m"
        formControlName="userState" name="state" placeholder="State">
-       <span class="help-block" id="userName" *ngIf="signupFristPage.get('userState').invalid&&userForm.submitted">
+       <span class="help-block" id="ustate" *ngIf="signupFristPage.get('userState').invalid&&userForm.submitted">
           State name is required
         </span>
      </div>
@@ -95,21 +95,17 @@
       <label>Country</label>
       <input [(ngModel)]="singnupPage.country" type="text" class="form-control form-control-m"
        formControlName="userCountry" name="country" placeholder="County">
-       <span class="help-block" id="userName" *ngIf="signupFristPage.get('userCountry').invalid&&userForm.submitted">
+       <span class="help-block" id="ucountry" *ngIf="signupFristPage.get('userCountry').invalid&&userForm.submitted">
           Country name is required
         </span>
      </div>
          <div class="below-links">
          <div class="col-md-12 text-center ">
-            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">signup</button>
+            <button type="submit" (click)="submit(singnupPage)" class=" btn btn-block mybtn btn-primary tx-tfm">signup</button>
          </div>
          
       </div>
-         <div class="form-group">
-            <p class="text-center">Don't have account? <a href="signupFirst" id="signup">Sign up here</a></p>
-         </div>
-     
-        </form>
+      </form>
      </div>
   </div>
 </div>

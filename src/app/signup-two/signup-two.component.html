@@ -1,0 +1,65 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="sidenav">
+  <div class="login-main-text">
+     <h2><b>Domorespices</b></h2>
+     <p>Login or register from here to access.</p>
+  </div>
+</div>
+
+<div class="main align-item-center">
+  <div class="col-md-8 col-sm-12">
+    <div class="login-form myform">
+         <div *ngIf="valid" class="alert alert-warning alert-dismissible fade show" role="alert">
+               <strong>UserName or Password invalid!!</strong> 
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div> 
+        <form [formGroup]="signupSecondForm" #userForm="ngForm" (ngSubmit)="signup()">
+           <div class="form-group" >
+              <label>Hotel Name</label>
+              
+              <input type="text" [(ngModel)]="signupTwo.hotelName" class="form-control form-control-m" 
+              formControlName="hname" name="hotelName" placeholder="Hotelname">
+              <span class="help-block"  id="hotelname" *ngIf="signupSecondForm.get('hname').invalid&&userForm.submitted">
+               Hotel Name is required
+             </span>
+         </div>
+           <div class="form-group" >
+              <label>Brnach</label>
+              
+              <input [(ngModel)]="signupTwo.branch" type="password" class="form-control form-control-m"
+               formControlName="hbranch" name="branch" placeholder="Brnachname">
+               <span class="help-block" id="hotelbranch" *ngIf="signupSecondForm.get('hbranch').invalid&&userForm.submitted">
+                  Branch name is required
+                </span>
+         </div>
+         <div class="form-group" >
+            <label>Pincode</label>
+            
+            <input [(ngModel)]="signupTwo.pincode" type="password" class="form-control form-control-m"
+             formControlName="hpincode" name="pincode" placeholder="Pincode">
+             <span class="help-block" id="hotelpincode" *ngIf="signupSecondForm.get('hpincode').invalid&&userForm.submitted">
+                Branch Pincode is required
+              </span>
+       </div>
+       <div class="form-group" >
+         <label>Address</label>
+         
+         <input [(ngModel)]="signupTwo.address" type="password" class="form-control form-control-m"
+          formControlName="haddress" name="address" placeholder="Address">
+          <span class="help-block" id="hoteladdress" *ngIf="signupSecondForm.get('haddress').invalid&&userForm.submitted">
+             Hotel Address is required
+           </span>
+    </div>
+    <div class="below-links">
+      <div class="col-md-12 text-center ">
+         <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">signup</button>
+      </div>
+   </div>
+</form>
+     </div>
+  </div>
+</div>
+
+

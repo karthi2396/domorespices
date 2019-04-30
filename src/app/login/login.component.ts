@@ -10,11 +10,10 @@ import { LoginVO } from './login-vo';
 export class LoginComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder) { }
-  
   loginForm: FormGroup;
-  loginInfo= new LoginVO();
+  loginInfo = new LoginVO();
   isSubmitted  =  false;
-  valid= false;
+  valid = false;
   ngOnInit() {
     this.loginForm  =  this.formBuilder.group({
       emailLogin: ['', Validators.required],
@@ -23,12 +22,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-   
-    this.isSubmitted = true;
-    if(this.loginInfo.password.localeCompare('wrong')===0){
-      this.valid=true;
+   this.isSubmitted = true;
+   if (this.loginInfo.password.localeCompare('wrong') === 0) {
+      this.valid = true;
     }
-    if(this.loginForm.valid){
+   if (this.loginForm.valid) {
       console.log(this.loginInfo);
     }
   }

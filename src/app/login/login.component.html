@@ -21,7 +21,7 @@
               
               <input type="text" [(ngModel)]="loginInfo.email" class="form-control form-control-m" 
               formControlName="emailLogin" name="email" placeholder="User Name">
-              <span class="help-block"  id="userName" *ngIf="loginForm.get('emailLogin').invalid&&userForm.submitted">
+              <span class="help-block"  id="username" *ngIf="loginForm.get('emailLogin').invalid&&userForm.submitted">
                User Name is required
              </span>
          </div>
@@ -30,7 +30,7 @@
               
               <input [(ngModel)]="loginInfo.password" type="password" class="form-control form-control-m"
                formControlName="passwordLogin" name="password" placeholder="Password">
-               <span class="help-block" id="userName" *ngIf="loginForm.get('passwordLogin').invalid&&userForm.submitted">
+               <span class="help-block" id="upassword" *ngIf="loginForm.get('passwordLogin').invalid&&userForm.submitted">
                   Password is required
                 </span>
          </div>
