@@ -28,11 +28,11 @@ export class SignupOneComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: [],
       middleName: [],
-      mail: ['', [Validators.required]],
-      mobileNumber: ['', [Validators.required]],
+      mail: ['', [Validators.required, Validators.pattern(/^(\d{10}|\w+@\w+\.\w{2,3})$/)]],
+      mobileNumber: ['', [Validators.required, Validators.pattern(/^(\d{10}|\w+@\w+\.\w{2,3})$/)]],
       userAddress: ['', Validators.required],
       userCity: ['', Validators.required],
-      userPincode: ['', Validators.required],
+      userPincode: ['', [Validators.required, Validators.maxLength(6), Validators.pattern('^[1-9][0-9]{5}$')]],
       userCountry: [{value: '', disabled: true}, Validators.required],
       userState: ['', Validators.required]
   });
@@ -42,9 +42,9 @@ export class SignupOneComponent implements OnInit {
   signup() {
     if (this.signupFirstPage.valid) {
       console.log(this.singnupPage);
+      this.router.navigate (['signupSecond']);
     }
-    this.router.navigate (['signupSecond']);
-  }
+    }
 
   fetchAllStatesByCountry(country) {
     this.states = new CountryStatesMapper().getStatesByCountry(country);

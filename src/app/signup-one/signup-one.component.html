@@ -19,7 +19,7 @@
           <label>First Name</label>
           <input type="text" [(ngModel)]="singnupPage.firstName" class="form-control form-control-m"
                  formControlName="firstName" name="firstName" placeholder="First name">
-          <span class="help-block" id="firstName" *ngIf="signupFirstPage.get('firstName').invalid&&userForm.submitted">
+          <span class="text-danger" id="firstName" *ngIf="signupFirstPage.get('firstName').invalid&&userForm.submitted">
             Firstname is required
             </span>
         </div>
@@ -27,7 +27,7 @@
           <label>Last Name</label>
           <input [(ngModel)]="singnupPage.lastName" type="text" class="form-control form-control-m"
                  formControlName="lastName" name="lastName" placeholder="Last name">
-          <span class="help-block" id="lastName" *ngIf="signupFirstPage.get('lastName').invalid&&userForm.submitted">
+          <span class="text-danger" id="lastName" *ngIf="signupFirstPage.get('lastName').invalid&&userForm.submitted">
             Lastname is required
             </span>
         </div>
@@ -35,7 +35,7 @@
             <label>Middle Name</label>
             <input [(ngModel)]="singnupPage.middleName" type="text" class="form-control form-control-m"
                  formControlName="middleName" name="middleName" placeholder="Middle name">
-          <span class="help-block" id="middleName"
+          <span class="text-danger" id="middleName"
                 *ngIf="signupFirstPage.get('middleName').invalid&&userForm.submitted">
             Middle name is required
             </span>
@@ -43,27 +43,32 @@
         <div class="form-group">
           <label>Email</label>
           <input [(ngModel)]="singnupPage.email" type="email" class="form-control form-control-m"
-                 formControlName="mail" name="email" placeholder="Email"
-                 pattern="[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+">
-          <span class="help-block" id="email" *ngIf="signupFirstPage.get('mail').invalid&&userForm.submitted">
-            Email address is either empty or not required
-            </span>
+                 formControlName="mail" name="email" placeholder="Email">
+          <span class="text-danger" *ngIf="(signupFirstPage.get('mail').errors?.required && (signupFirstPage.get('mail').touched||
+                 userForm.submitted) ) && (signupFirstPage.get('mail').dirty || signupFirstPage.get('mail').errors.required  )">
+                 Email is required
+          </span>
+          <span class="text-danger" *ngIf="signupFirstPage.get('mail').errors?.pattern &&  (signupFirstPage.get('mail').dirty || 
+          signupFirstPage.get('mail').touched)">Please enter valid email 
+          </span>
         </div>
         <div class="form-group">
           <label>Mobile Number</label>
           <input [(ngModel)]="singnupPage.mobileNumber" type="number" class="form-control form-control-m"
-                 formControlName="mobileNumber"  name="mobileNumber" placeholder="Mobile Number"
-                 pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$">
-          <span class="help-block" id="alternateEmail"
-                *ngIf="signupFirstPage.get('mobileNumber').invalid&&userForm.submitted">
-            Mobile number is either empty or not in the right format
-            </span>
+                 formControlName="mobileNumber"  name="mobileNumber" placeholder="Mobile Number">
+          <span class="text-danger" *ngIf="(signupFirstPage.get('mobileNumber').errors?.required && (userForm.submitted) ) &&
+           (signupFirstPage.get('mobileNumber').dirty || signupFirstPage.get('mobileNumber').errors.required  )">
+          Mobile Number is required
+          </span>
+          <span class="text-danger" *ngIf="signupFirstPage.get('mobileNumber').errors?.pattern && 
+          (signupFirstPage.get('mobileNumber').dirty || signupFirstPage.get('mobileNumber').touched)">Please enter valid mobile number
+          </span>
         </div>
         <div class="form-group">
           <label>Address</label>
           <input [(ngModel)]="singnupPage.address" type="text" class="form-control form-control-m"
                  formControlName="userAddress" name="address" placeholder="Address">
-          <span class="help-block" id="address" *ngIf="signupFirstPage.get('userAddress').invalid&&userForm.submitted">
+          <span class="text-danger" id="address" *ngIf="signupFirstPage.get('userAddress').invalid&&userForm.submitted">
             Address is required
             </span>
         </div>
@@ -76,7 +81,7 @@
                   {{district}}
                 </option>
           </select>
-          <span class="help-block" id="city" *ngIf="signupFirstPage.get('userCity').invalid&&userForm.submitted">
+          <span class="text-danger" id="city" *ngIf="signupFirstPage.get('userCity').invalid&&userForm.submitted">
             City name is required
             </span>
         </div>
@@ -84,9 +89,12 @@
           <label>Pincode</label>
           <input [(ngModel)]="singnupPage.pincode" type="number" class="form-control form-control-m"
                  formControlName="userPincode" name="pincode" placeholder="Pincode">
-          <span class="help-block" id="pincode" *ngIf="signupFirstPage.get('userPincode').invalid&&userForm.submitted">
-            Pincode is required
-            </span>
+          <span class="text-danger" id="pincode" *ngIf="signupFirstPage.get('userPincode').invalid&&userForm.submitted
+           &&signupFirstPage.get('userPincode').errors?.required">Pincode is required
+          </span>
+          <span class="text-danger" *ngIf="signupFirstPage.get('userPincode').errors?.pattern &&  (signupFirstPage.get('userPincode').dirty || 
+               signupFirstPage.get('userPincode').touched)">Pincode must be 6 digits 
+          </span>
         </div>
         <div class="form-group">
           <label>Country</label>
@@ -101,7 +109,7 @@
               {{state}}
             </option>
           </select>
-          <span class="help-block" id="state" *ngIf="signupFirstPage.get('userState').invalid&&userForm.submitted">
+          <span class="text-danger" id="state" *ngIf="signupFirstPage.get('userState').invalid&&userForm.submitted">
             State is required
             </span>
         </div>

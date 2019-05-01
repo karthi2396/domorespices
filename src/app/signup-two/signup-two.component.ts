@@ -24,7 +24,7 @@ export class SignupTwoComponent implements OnInit {
     this.signupSecondForm  =  this.formBuilder.group({
       hname: ['', Validators.required],
       hbranch: ['', Validators.required],
-      hpincode: ['', Validators.required],
+      hpincode: ['', [Validators.required, Validators.pattern('^[1-9][0-9]{5}$')]],
       haddress: ['', Validators.required],
       hDistrict: ['', Validators.required],
       hState: ['', Validators.required]
