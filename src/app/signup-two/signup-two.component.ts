@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignupSecondPageVO } from './signup-second-page-vo';
 import { SignupFirstPageVO } from '../signup-one/signupFirstPage-vo';
+import { CountryStatesMapper } from '../i8n/countryStatesMapping';
+import { StateDistrictMapper } from '../i8n/stateDistrictMapping';
 
 
 @Component({
@@ -11,8 +13,10 @@ import { SignupFirstPageVO } from '../signup-one/signupFirstPage-vo';
 })
 export class SignupTwoComponent implements OnInit {
   signupData = new SignupFirstPageVO();
-  constructor(private formBuilder: FormBuilder) {
-   }
+  states: [];
+  districts: [];
+
+  constructor(private formBuilder: FormBuilder) {}
 
   signupSecondForm: FormGroup;
   signupTwo = new SignupSecondPageVO();
@@ -21,7 +25,9 @@ export class SignupTwoComponent implements OnInit {
       hname: ['', Validators.required],
       hbranch: ['', Validators.required],
       hpincode: ['', Validators.required],
-      haddress: ['', Validators.required]
+      haddress: ['', Validators.required],
+      hDistrict: ['', Validators.required],
+      hState: ['', Validators.required]
   });
   }
 
@@ -30,6 +36,16 @@ export class SignupTwoComponent implements OnInit {
        console.log(this.signupTwo);
      }
    }
+
+   fetchAllStatesByCountry(country) {
+    this.states = new CountryStatesMapper().getStatesByCountry(country);
+    return this.states;
+  }
+
+  fetchAllDistrictsByState(state) {
+    this.districts = new StateDistrictMapper().getDistrictByState(state);
+    return this.districts;
+  }
 
 
 }

@@ -29,22 +29,20 @@ export class SignupOneComponent implements OnInit {
       lastName: [],
       middleName: [],
       mail: ['', [Validators.required]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}$')]],
+      mobileNumber: ['', [Validators.required]],
       userAddress: ['', Validators.required],
       userCity: ['', Validators.required],
       userPincode: ['', Validators.required],
-      userCountry: ['', Validators.required],
+      userCountry: [{value: '', disabled: true}, Validators.required],
       userState: ['', Validators.required]
   });
   }
 
 
   signup() {
-   if (this.signupFirstPage.valid) {
+    if (this.signupFirstPage.valid) {
       console.log(this.singnupPage);
     }
-  }
-  submit(singnupPage) {
     this.router.navigate (['signupSecond']);
   }
 

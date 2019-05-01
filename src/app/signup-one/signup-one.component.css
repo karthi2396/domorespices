@@ -48,7 +48,33 @@ body {
    background: url("/assets/images/login.jpg")
 }
 }
+@media screen and (max-width: 900px){
+   .sidenav{
+      width: 100%;
+      position: static;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background: url("/assets/images/login.jpg")
+   }
+   .login-form{
+      margin-top: 10%;
+  }
 
+  .register-form{
+      margin-top: 10%;
+  }
+  .main{
+     margin-top: -51%; 
+     font-family: 'Karla', sans-serif;
+     margin-left: -11%;
+     margin-right:0;
+     width:100%;
+     justify-content: center;
+     
+ }
+
+}
 @media screen and (min-width: 768px){
    .main{
        margin-left: 54%; 

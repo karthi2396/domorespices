@@ -3,4 +3,6 @@ export class SignupSecondPageVO {
    branch: string;
    pincode: string;
    address: string;
+   city: string;
+   state: string;
 }
