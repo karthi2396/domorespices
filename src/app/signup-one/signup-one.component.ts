@@ -42,6 +42,7 @@ export class SignupOneComponent implements OnInit {
   signup() {
     if (this.signupFirstPage.valid) {
       console.log(this.singnupPage);
+      this.singnupPage.country = 'India';
       this.router.navigate (['signupSecond']);
     }
     }

@@ -22,7 +22,7 @@
              <label>Hotel Name</label>
              
              <input type="text" [(ngModel)]="signupTwo.hotelName" class="form-control form-control-m" 
-             formControlName="hname" name="hotelName" placeholder="Hotelname">
+             formControlName="hname" name="hotelName" placeholder="Hotel Name">
              <span class="text-danger"  id="hotelname" *ngIf="signupSecondForm.get('hname').invalid&&userForm.submitted">
               Hotel Name is required
             </span>
@@ -31,7 +31,7 @@
               <label>Branch</label>
               
               <input [(ngModel)]="signupTwo.branch" type="text" class="form-control form-control-m"
-               formControlName="hbranch" name="branch" placeholder="Branchname">
+               formControlName="hbranch" name="branch" placeholder="Branch Name">
                <span class="text-danger" id="hotelbranch" *ngIf="signupSecondForm.get('hbranch').invalid&&userForm.submitted">
                   Branch name is required
                 </span>
@@ -39,8 +39,12 @@
          <div class="form-group" >
          <label>Address</label>
          
-         <input [(ngModel)]="signupTwo.address" type="text" class="form-control form-control-m"
-          formControlName="haddress" name="address" placeholder="Address">
+         <!-- <input [(ngModel)]="signupTwo.address" type="text" class="form-control form-control-m"
+          formControlName="haddress" name="address" placeholder="Address"> -->
+          <textarea class="form-control form-control-m" rows = "4" cols = "35" name = "description"
+            [(ngModel)]="signupTwo.address"  formControlName="haddress" name="address" placeholder="Address">
+              Enter details here...
+           </textarea>
           <span class="text-danger" id="hoteladdress" *ngIf="signupSecondForm.get('haddress').invalid&&userForm.submitted">
              Hotel Address is required
            </span>
