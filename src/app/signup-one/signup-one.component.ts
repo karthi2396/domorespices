@@ -4,6 +4,8 @@ import { SignupFirstPageVO } from './signupFirstPage-vo';
 import { Router} from '@angular/router';
 import { Data } from '../data';
 import {CountryStatesMapper} from '../i8n/countryStatesMapping';
+import { DISABLED } from '@angular/forms/src/model';
+import { StateDistrictMapper } from '../i8n/stateDistrictMapping';
 
 
 @Component({
@@ -18,6 +20,7 @@ export class SignupOneComponent implements OnInit {
 
   signupFirstPage: FormGroup;
   states: [];
+  districts: [];
   singnupPage = new SignupFirstPageVO();
 
   ngOnInit() {
@@ -25,8 +28,8 @@ export class SignupOneComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: [],
       middleName: [],
-      mail: ['', Validators.required],
-      mobileNumber: ['', Validators.required],
+      mail: ['', [Validators.required]],
+      mobileNumber: ['', [Validators.required, Validators.pattern('^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}$')]],
       userAddress: ['', Validators.required],
       userCity: ['', Validators.required],
       userPincode: ['', Validators.required],
@@ -48,6 +51,11 @@ export class SignupOneComponent implements OnInit {
   fetchAllStatesByCountry(country) {
     this.states = new CountryStatesMapper().getStatesByCountry(country);
     return this.states;
+  }
+
+  fetchAllDistrictsByState(state) {
+    this.districts = new StateDistrictMapper().getDistrictByState(state);
+    return this.districts;
   }
 
 }
