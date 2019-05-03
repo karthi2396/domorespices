@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupOneComponent } from './signup-one/signup-one.component';
 import { SignupTwoComponent } from './signup-two/signup-two.component';
 import { Data } from './data';
+import { CreateInventryComponent } from './create-inventry/create-inventry.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { Data } from './data';
     LoginComponent,
     routingComponents,
     SignupOneComponent,
-    SignupTwoComponent
+    SignupTwoComponent,
+    CreateInventryComponent
   ],
   imports: [
     BrowserModule,

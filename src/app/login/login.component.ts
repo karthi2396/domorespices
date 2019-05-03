@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginVO } from './login-vo';
 
 @Component({
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   });
   }
 
-  login(){
+  login() {
    this.isSubmitted = true;
    if (this.loginInfo.password.localeCompare('wrong') === 0) {
       this.valid = true;

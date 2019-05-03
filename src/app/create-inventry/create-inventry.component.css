@@ -1,0 +1,16 @@
+.sidenav {
+    height: 100%;
+    width: 100%;
+   
+    background-position: center;
+    background: url('/assets/images/inventry.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+ }
+ .border{
+     border: 2px solid red;
+ }
+ hr {
+    border: 1px solid silver;
+}
