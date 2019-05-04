@@ -86,6 +86,7 @@
           <br>
           <select [(ngModel)]="singnupPage.city"  class="form-control form-control-m"
                  formControlName="userCity" name="city" placeholder="City">
+                 <option value="" selected disabled>Select food type</option>
                  <option *ngFor="let district of fetchAllDistrictsByState('tamilnadu')" value={{district}}>
                   {{district}}
                 </option>

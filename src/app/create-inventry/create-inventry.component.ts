@@ -9,40 +9,84 @@ import { InventryVO, InventryVOList } from './inventry-vo';
 export class CreateInventryComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
-  name = 'Angular 6';
+
   inventryForm: FormGroup;
   inventryList = new InventryVOList();
+  disableBreakFast = false;
+  disableLunch = false;
+  disableDinner = false;
   ngOnInit() {
     this.inventryForm = this.fb.group({
-      skills: this.fb.array([
-        this.addSkillFormGroup()
+      hotelFoods: this.fb.array([
+        this.addFoodtype()
       ])
     });
   }
 
-  addSkillButtonClick(): void {
-   ( this.inventryForm.get('skills') as FormArray).push(this.addSkillFormGroup());
+  addFoodItemsButtonClick(userIndex): void {
+    (( (this.inventryForm.controls.hotelFoods as FormArray)
+    .controls[userIndex] as FormGroup).controls.foodDetails as FormArray).push(this.addFoodFormGroup());
   }
-  removePhone(index) {
-    (this.inventryForm.get('skills') as FormArray).removeAt(index);
+
+  addFoodTypeButtonClick(i): void {
+    console.log(i);
+    const type = ((this.inventryForm.controls.hotelFoods as FormArray)
+    .controls[i] as FormGroup).get('foodtype').value;
+    if (type === 'BREAKFAST') {
+      this.disableBreakFast = true;
+    }
+    if (type === 'LUNCH') {
+      this.disableLunch = true;
+    }
+    if (type === 'DINNER') {
+      this.disableDinner = true;
+    }
+    if (i < 2) {
+   (this.inventryForm.get('hotelFoods') as FormArray).push(this.addFoodtype());
+    }
+  }
+
+  removeFoodDetilas(index, i) {
+    (( (this.inventryForm.controls.hotelFoods as FormArray)
+    .controls[index] as FormGroup).controls.foodDetails as FormArray).removeAt(i);
+  }
+
+  removeFoodType(index) {
+    const type = ((this.inventryForm.controls.hotelFoods as FormArray)
+    .controls[index] as FormGroup).get('foodtype').value;
+    if (type === 'BREAKFAST') {
+      this.disableBreakFast = false;
+    }
+    if (type === 'LUNCH') {
+      this.disableLunch = false;
+    }
+    if (type === 'DINNER') {
+      this.disableDinner = false;
+    }
+    (this.inventryForm.get('hotelFoods') as FormArray).removeAt(index);
   }
 
   createInventry() {
-    this.inventryList.inventryVOList = this.inventryForm.get('skills').value;
-    console.log(this.inventryForm);
+  if (this.inventryForm.valid) {
+    this.inventryList = this.inventryForm.value;
     console.log(this.inventryList);
   }
+  }
 
-  addSkillFormGroup(): FormGroup {
+
+   addFoodtype(): FormGroup {
+     return this.fb.group({
+      foodtype: ['', Validators.required],
+      foodDetails: this.fb.array([
+        this.addFoodFormGroup()
+      ])
+     });
+   }
+   addFoodFormGroup(): FormGroup {
     return this.fb.group({
-      type: ['', Validators.required],
       food: ['', Validators.required],
       price: ['', Validators.required]
     });
-  }
-
-  removeSkillButtonClick(skillGroupIndex: number): void {
-    (this.inventryForm.get('skills') as FormArray).removeAt(skillGroupIndex);
   }
 
 }

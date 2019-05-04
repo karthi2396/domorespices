@@ -1,50 +1,80 @@
     <div class="container bg-light vertical-center">
     <div class="col-md-6 col-sm-12 mt-5 ">
-    <form [formGroup]="inventryForm" #userForm="ngForm" (ngSubmit)="createInventry()">
-      <div formArrayName="skills"  *ngFor="let skill of inventryForm.get('skills').controls; let i = index">
-        <hr *ngIf="i>0">
-        <div [formGroupName]="i" class="border p-3">
-            <div class="col-sm-6 " *ngIf="inventryForm.get('skills').length>1">
-                <button type="button" class="btn btn-danger btn-md float-right"
-                        title="Delete Skill" (click)="removeSkillButtonClick(i)">
-                  <span class="glyphicon glyphicon-remove"></span>
-                </button>
+    <form [formGroup]="inventryForm" #userForm="ngForm" >
+        
+        <div formArrayName="hotelFoods"  *ngFor="let foods of inventryForm.controls.hotelFoods.controls; let i = index">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-4">
+                  <button type="button" [disabled]="inventryForm.get('hotelFoods').invalid" class="btn btn-primary"  (click)="addFoodTypeButtonClick(i)">
+                    Add FoodType
+                  </button>
+                </div>
               </div>
-            <div class="form-group" >
-            <label [attr.for]="'type'+i">Food Type</label>
+          <div class="col-sm-6 " *ngIf="inventryForm.get('hotelFoods').length>1">
+            <button type="button" class="btn btn-danger btn-md float-right"
+                    title="Delete Skill" (click)="removeFoodType(i)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </div>  
+          <div [formGroupName]="i" class="border p-3">
+           <div class="form-group" >
+            <label >Food Type</label>
          
-            <input type="text"  class="form-control form-control-m" required [id]="'type'+i"
-            formControlName="type" name="inventryfoodtype" placeholder="Food Type">
-            <span class="text-danger" id="password" *ngIf="skill.get('type').errors?.required&&userForm.submitted">
+            <!-- <input type="text"  class="form-control form-control-m" 
+            formControlName="foodtype" name="inventryfoodtype" placeholder="Food Type"> -->
+            <div class="form-group">
+              <label for="sel1">Select Food Type:</label>
+              <select formControlName="foodtype" class="form-control" id="sel1">
+                <option value="" selected disabled>Select food type</option>
+                <option [disabled]="disableBreakFast">BREAKFAST</option>
+                <option [disabled]="disableLunch">LUNCH</option>
+                <option [disabled]="disableDinner">DINNER</option>
+              </select>
+            </div>
+            <span class="text-danger" id="password" *ngIf="foods.get('foodtype').errors?.required&&userForm.submitted">
               Food Type is required
             </span>
-           
-      </div>
+          </div>
+          
+        <div formArrayName="foodDetails"  *ngFor="let itemDetails of foods.controls.foodDetails.controls; let i = index">
+        <hr *ngIf="i>0">
+        <div [formGroupName]="i" class="border p-3">
+          <div class="col-sm-6 " *ngIf="foods.get('foodDetails').length>1">
+            <button type="button" class="btn btn-danger btn-md float-right"
+                    title="Delete Skill" (click)="removeFoodDetilas(i,i)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </div>  
       <div class="form-group" >
-        <label [attr.for]="'food'+i">Food Name</label>
-        <input type="text"  class="form-control form-control-m" [id]="'food'+i"
+        <label >Food Name</label>
+        <input type="text"  class="form-control form-control-m" 
         formControlName="food"  placeholder="User Name" required>
-        <span class="text-danger" id="password" *ngIf="skill.get('food').errors?.required&&userForm.submitted">
+
+        <span class="text-danger" id="password" *ngIf="itemDetails.get('food').errors?.required&&userForm.submitted">
           Food Name is required
-        </span>
+        </span> 
       </div>
       <div class="form-group" >
-        <label [attr.for]="'price'+i">Food Price</label>
-        <input type="text"  class="form-control form-control-m" required [id]="'price'+i"
+        <label>Food Price</label>
+        <input type="text"  class="form-control form-control-m" required 
         formControlName="price"  placeholder="Food Price">
-        <span class="text-danger" id="password" *ngIf="skill.get('price').errors?.required&&userForm.submitted">
-          Food Type is required
-        </span>
+        <span class="text-danger" id="password" *ngIf="itemDetails.get('price').errors?.required&&userForm.submitted">
+          Food Price is required
+        </span> 
       </div>
+      
   </div>
-</div>
-<div class="form-group">
-  <div class="col-md-offset-2 col-md-4">
-    <button type="button" class="btn btn-primary" [disabled]="inventryForm.get('skills').invalid" (click)="addSkillButtonClick()">
-      Add Skill
-    </button>
-  </div>
-</div>
+ 
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-4">
+          <button type="button" class="btn btn-primary"  (click)="addFoodItemsButtonClick(i)">
+            Add Item
+          </button>
+        </div>
+      </div>
+    </div>
+        </div>
 
 <div class="col-md-12 text-center ">
   <button type="submit" (click)="createInventry()" class=" btn btn-block mybtn btn-primary tx-tfm">Submit</button>

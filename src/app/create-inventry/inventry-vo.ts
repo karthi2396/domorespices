@@ -1,9 +1,12 @@
 export interface InventryVO {
     foodtype: string;
-    foodName: string;
-    foodPrice: string;
+    foodDetails: FoodDetails[];
 }
 
 export class InventryVOList {
     inventryVOList: InventryVO[];
+}
+export interface FoodDetails {
+    food: string;
+    price: string;
 }
