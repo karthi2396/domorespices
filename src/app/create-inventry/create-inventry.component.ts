@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { InventryVO, InventryVOList } from './inventry-vo';
+import { FoodTypes } from '../i8n/getFoodTypes';
 @Component({
   selector: 'app-create-inventry',
   templateUrl: './create-inventry.component.html',
@@ -15,6 +16,9 @@ export class CreateInventryComponent implements OnInit {
   disableBreakFast = false;
   disableLunch = false;
   disableDinner = false;
+  selected = false;
+  foodTypeBoolean = false;
+  foodtypes = new FoodTypes().getFoodTypes();
   ngOnInit() {
     this.inventryForm = this.fb.group({
       hotelFoods: this.fb.array([
@@ -32,6 +36,8 @@ export class CreateInventryComponent implements OnInit {
     console.log(i);
     const type = ((this.inventryForm.controls.hotelFoods as FormArray)
     .controls[i] as FormGroup).get('foodtype').value;
+    console.log(type);
+    console.log(this.foodtypes[i]);
     if (type === 'BREAKFAST') {
       this.disableBreakFast = true;
     }
@@ -44,9 +50,18 @@ export class CreateInventryComponent implements OnInit {
     if (i < 2) {
    (this.inventryForm.get('hotelFoods') as FormArray).push(this.addFoodtype());
     }
+    if (i === 1) {
+      this.selected = true;
+
+    }
+    if (i === 2) {
+      this.foodTypeBoolean = true;
+    }
   }
 
   removeFoodDetilas(index, i) {
+    console.log(index);
+    console.log(i);
     (( (this.inventryForm.controls.hotelFoods as FormArray)
     .controls[index] as FormGroup).controls.foodDetails as FormArray).removeAt(i);
   }
