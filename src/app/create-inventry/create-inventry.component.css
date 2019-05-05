@@ -9,71 +9,9 @@ body {
    overflow-x: hidden;
    padding-top: 20px;
 }
-
-
-@media screen and (max-height: 700px) {
-   .sidenav {padding-top: 15px;}
-   .detailsheading{
-      padding-left: 0%;
-   }
-}
-
-@media screen and (max-width: 450px) {
-  
-  .sidenav{
-   width: 100%;
-   position: static;
-   z-index: 1;
-   top: 0;
-   left: 0;
-   background: url("/assets/images/login.jpg");
-   background-size: cover;
-}
-
-::placeholder,select{
-   color: white;
-  }
-  .detailsheading{
-     margin-left: 100%;
-  }
-  .items{
-     width:50%;
-     
-  }
-  
 .login-main-text{
    margin-top: 0%;
-   padding: 60px;
-   color: #fff;
-   font-size: 1em;
-   
-}
-}
-
-@media screen and (min-width: 768px){
-   
-   .sidenav{
-       width: 100%;
-       position: fixed;
-       z-index: 1;
-       top: 0;
-       left: 0;
-       background: url("/assets/images/login.jpg");
-       -webkit-box-shadow: 1px 1px 3px 3px rgb(212, 209, 209);
-       background-size: cover;
-   }
-
-   .login-form{
-       margin-top: 80%;
-       border:1px solid red;
-   }
-
-}
-
-
-.login-main-text{
-   margin-top: 0%;
-   padding: 80px;
+   padding: 30px;
    color: #fff;
    font-size: 1em;
    
@@ -108,13 +46,17 @@ h2{
    font-size: 13px;
 }
 
-
+.borderForm{
+   border: 1px solid white;
+   border-radius: 0.5rem;
+}
 
 .mybtn{
    border-radius:15px;
-   width: 100%;
-   margin-left:0%; 
+   width: 20%;
+   margin-left:40%; 
    font-size: 14px;
+   
 }
 .form-control,select{
       background:transparent!important;
@@ -130,9 +72,88 @@ h2{
    color: white;
   }
   .detailsheading{
-     margin-left: 70%;
+     margin-left: 50%;
   }
   .items{
      width: 70%;
      
   }
+
+
+@media screen and (min-width: 700px) {
+   .sidenav {padding-top: 15px;}
+   .detailsheading{
+      padding-left: 0%;
+   }
+   .items{
+      width:55% !important;
+      
+   }
+   .second{
+     width: 23% !important;
+   }
+}
+
+@media screen and (max-width: 770px) {
+  
+  .sidenav{
+   height: 100% !important;
+   width: 100%;
+   position: static;
+   z-index: 2;
+   top: 0;
+   left: 0;
+   background: url("/assets/images/login.jpg");
+   background-size: cover;
+}
+.borderForm{
+   border: 1px solid white;
+   border-radius: 0.5rem;
+}
+::placeholder,select{
+   color: white;
+  }
+  .detailsheading{
+     margin-left: 38% !important;
+  }
+  .items{
+     width:55% !important;
+     
+  }
+  .second{
+    width: 23% !important;
+  }
+  input.second ::placeholder {
+   font-size: 0.5em;
+   }
+  
+.login-main-text{
+   margin-top: 0%;
+   padding: 10px !important;
+   color: #fff;
+   font-size: 1em;
+   
+}
+}
+
+@media screen and (min-width: 768px){
+   
+   .sidenav{
+       width: 100%;
+       position: fixed;
+       z-index: 1;
+       top: 0;
+       left: 0;
+       background: url("/assets/images/login.jpg");
+       -webkit-box-shadow: 1px 1px 3px 3px rgb(212, 209, 209);
+       background-size: cover;
+   }
+
+   .login-form{
+       margin-top: 80%;
+       border:1px solid red;
+   }
+
+}
+
+
