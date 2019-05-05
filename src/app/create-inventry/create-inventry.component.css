@@ -1,12 +1,7 @@
-
-
- body {
+body {
     font-family: 'Karla', sans-serif;;
 }
-.main-head{
-   height: 150px;
-   background: #FFF;
-}
+
 
 .sidenav {
    height: 100%;
@@ -14,10 +9,7 @@
    overflow-x: hidden;
    padding-top: 20px;
 }
-.main {
-   padding: 0px 10px;
-   margin-top: 0%;
-}
+
 
 @media screen and (max-height: 700px) {
    .sidenav {padding-top: 15px;}
@@ -27,52 +19,48 @@
 }
 
 @media screen and (max-width: 450px) {
-   .login-form{
-       margin-top: 10%;
-   }
-
-   .register-form{
-       margin-top: 10%;
-   }
-   .main{
-      margin-top: -51%; 
-      font-family: 'Karla', sans-serif;
-      margin-left: -11%;
-      margin-right:0;
-      width:100%;
-      justify-content: center;
-      
-  }
-
+  
   .sidenav{
-   width: 50%;
+   width: 100%;
    position: static;
    z-index: 1;
    top: 0;
    left: 0;
-   background: url("/assets/images/inventry.jpg")
+   background: url("/assets/images/login.jpg");
+   background-size: cover;
 }
-.detailsheading{
-   padding-left: 0%;
+
+::placeholder,select{
+   color: white;
+  }
+  .detailsheading{
+     margin-left: 100%;
+  }
+  .items{
+     width:50%;
+     
+  }
+  
+.login-main-text{
+   margin-top: 0%;
+   padding: 60px;
+   color: #fff;
+   font-size: 1em;
+   
 }
 }
 
 @media screen and (min-width: 768px){
-   .main{
-       margin-left: 39%; 
-       margin-top: 100%;
-       margin-top:-29%;
-       font-family: 'Karla', sans-serif;
-       
-   }
    
    .sidenav{
-       width: 45%;
+       width: 100%;
        position: fixed;
        z-index: 1;
        top: 0;
        left: 0;
-       background: url("/assets/images/login.jpg")
+       background: url("/assets/images/login.jpg");
+       -webkit-box-shadow: 1px 1px 3px 3px rgb(212, 209, 209);
+       background-size: cover;
    }
 
    .login-form{
@@ -80,21 +68,15 @@
        border:1px solid red;
    }
 
-   .register-form{
-       margin-top: 20%;
-   }
-   .detailsheading{
-      padding-left: 30%;
-   }
 }
 
 
 .login-main-text{
-   margin-top: 30%;
-   padding: 60px;
+   margin-top: 0%;
+   padding: 80px;
    color: #fff;
-   
    font-size: 1em;
+   
 }
 
 .login-main-text h2{
@@ -112,29 +94,8 @@ h2{
 .btn-secondary{
    background-color: #ff6633 !important;
 }
-.myform{
-   position: relative;
-   display: -ms-flexbox;
-   display: flex;
-   padding: 2rem;
-   -ms-flex-direction: column;
-   flex-direction: column;
-   width: 100%;
-   pointer-events: auto;
-   background-color: #fff;
-   background-clip: padding-box;
-   border: 1px solid rgba(0,0,0,.2);
-   border-radius: 1.1rem;
-   outline: 0;
-   max-width: 645px;
-   margin-left: 13%;
-   margin-top:60%;
-   font-size: 15px;
-   -webkit-box-shadow: 1px 1px 3px 3px rgb(212, 209, 209);
-}
-.below-links{
-   font-size: 15px;
-}
+
+
 .alert{
    font-size: 13px;
    font-family: 'Karla', sans-serif;
@@ -147,54 +108,31 @@ h2{
    font-size: 13px;
 }
 
-.hr-or {
-   height: 1px;
-   margin-top: 0px !important;
-   margin-bottom: 0px !important;
-}
-.google {
-    color:#666;
-    height:40px;
-    text-align:center;
-    outline:none;
-    border: 1px solid lightgrey;
-}
-.fa-google-plus{
-   color: red;
-}
-.tx-tfm{
-   text-transform:uppercase;
-}
+
+
 .mybtn{
    border-radius:15px;
-   width: 110%;
-   margin-left:-4%; 
+   width: 100%;
+   margin-left:0%; 
    font-size: 14px;
 }
-.login-or {
-   position: relative;
-   color: #aaa;
-   margin-top: 10px;
-   margin-bottom: 10px;
-   padding-top: 10px;
-   padding-bottom: 10px;
+.form-control,select{
+      background:transparent!important;
+      color:white!important;
+  }
+  select option{
+   border: 1px solid #fff;
+   background-color: transparent;
+   -webkit-appearance: none;
+   color: #ff6633;
 }
-.span-or {
-   display: block;
-   position: absolute;
-   left: 50%;
-   top: -2px;
-   margin-left: -25px;
-   background-color: #fff;
-   width: 50px;
-   text-align: center;
-}
-
-input[type="text"] {
-    border: none;
-    border-bottom: 1px solid #ff6633;
-    border-radius: 0;
-    }
-    .detailsheading{
-       padding-left: 30%;
-    }
+  ::placeholder,select{
+   color: white;
+  }
+  .detailsheading{
+     margin-left: 70%;
+  }
+  .items{
+     width: 70%;
+     
+  }
