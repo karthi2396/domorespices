@@ -8,7 +8,8 @@ import { CreateInventryComponent } from './create-inventry/create-inventry.compo
 const routes: Routes = [{path: 'login', component: LoginComponent},
                         {path: 'signupFirst', component: SignupOneComponent},
                         {path: 'signupSecond', component: SignupTwoComponent},
-                         {path: 'createInventry', component: CreateInventryComponent}];
+                        {path: 'createInventry', component: CreateInventryComponent},
+                        ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -16,4 +17,4 @@ const routes: Routes = [{path: 'login', component: LoginComponent},
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [LoginComponent, SignupOneComponent, SignupTwoComponent];
+export const routingComponents = [LoginComponent, SignupOneComponent, SignupTwoComponent, CreateInventryComponent];

@@ -92,6 +92,7 @@ export class CreateInventryComponent implements OnInit {
    addFoodtype(): FormGroup {
      return this.fb.group({
       foodtype: ['', Validators.required],
+      
       foodDetails: this.fb.array([
         this.addFoodFormGroup()
       ])

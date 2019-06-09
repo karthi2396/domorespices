@@ -16,14 +16,15 @@ import { CreateInventryComponent } from './create-inventry/create-inventry.compo
     routingComponents,
     SignupOneComponent,
     SignupTwoComponent,
-    CreateInventryComponent
+    CreateInventryComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
   ],
   providers: [Data],
   bootstrap: [AppComponent]
