@@ -1,4 +1,4 @@
-export class LoginVO{
+export class LoginVO {
     email: string;
     password: string;
 }
